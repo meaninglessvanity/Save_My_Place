@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.meaninglessvanity">
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:icon="@drawable/ic_launcher">
+        <activity android:name="org.meaninglessvanity.SaveMyPlace"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.meaninglessvanity.PlayListActivity"/>
+        <activity android:name="org.meaninglessvanity.TrackChooserActivity"/>
+        <service android:enabled="true" android:name=".SyncService"  android:process=":syncProcess" android:foregroundServiceType="dataSync"/>
+        <service android:enabled="true" android:name=".player.PlayerService" android:process=":playerProcess" android:foregroundServiceType="mediaPlayback"/>
+    </application>
+</manifest>
